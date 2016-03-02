@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">CarMaster</string>
+
+    <string name="home_btn">home</string>
+    <string name="climate_btn">climate</string>
+    <string name="audio_btn">audio</string>
+    <string name="nav_btn">nav</string>
+    <string name="phone_btn">phone</string>
+    <string name="external_temp">56\u00B0F</string>
+
+    <string name="all_area">ALL</string>
+    <string name="driver_area">DRIVER</string>
+    <string name="passenger_area">PASSENGER</string>
+    <string name="rear_area">REAR</string>
+
+    <string name="nav_search_bar">Search address, business, or landmark</string>
+    <string name="confirm_nav">Are you sure?</string>
+    <string name="directions">Head North on Campus Drive</string>
+
+    <string name="am_select">AM</string>
+    <string name="fm_select">FM</string>
+    <string name="aux_select">AUX</string>
+    <string name="phone_select">PHONE</string>
+
+    <string name="hold_to_set">hold to set</string>
+
+
+</resources>

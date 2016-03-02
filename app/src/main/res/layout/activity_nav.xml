@@ -1,0 +1,467 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cis368.com.carmaster.Nav"
+    android:gravity="center_horizontal">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <TextView android:id="@+id/fullscreen_content" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:keepScreenOn="true" android:textColor="#33b5e5"
+        android:textStyle="bold" android:textSize="50sp"
+        android:layout_gravity="center"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/headerBar"
+        android:background="@drawable/black_dot_bg" />
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="#ccbbbbbb"
+        android:layout_alignParentStart="false"
+        android:id="@+id/headerBar"
+        android:weightSum="1"
+        style="horizontal"
+        android:gravity="right|center_vertical">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1.01"
+            android:gravity="left|center_vertical"
+            android:id="@+id/deviceConnectedLayout"
+            android:visibility="invisible" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView4"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bluetooth"
+                android:paddingLeft="10dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView5"
+                android:scaleType="fitCenter"
+                android:src="@drawable/battery"
+                android:paddingLeft="10dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView6"
+                android:scaleType="fitCenter"
+                android:src="@drawable/signal"
+                android:paddingLeft="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/phoneName"
+                android:layout_marginLeft="20dp"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <TextClock
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/time"
+            android:textColor="#BBBBBB"
+            android:textSize="60sp"
+            android:background="#444444"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:gravity="center_vertical" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:id="@+id/compass"
+            android:src="@drawable/compass_north" />
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:id="@+id/weather"
+            android:src="@drawable/rain" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/external_temp"
+            android:id="@+id/externTemp"
+            android:textSize="50dp"
+            android:textColor="#000000"
+            android:paddingRight="50dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/splashPageLayout"
+        android:layout_above="@+id/menuLayout"
+        android:layout_below="@+id/headerBar"
+        android:gravity="center_vertical"
+        android:visibility="invisible">
+
+        <ImageButton
+            android:layout_width="500dp"
+            android:layout_height="100dp"
+            android:id="@+id/enterDestBtn"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/black_btn"
+            android:src="@drawable/enter_destination"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:scaleType="fitCenter"
+            android:layout_marginBottom="10dp" />
+
+        <ImageButton
+            android:layout_width="500dp"
+            android:layout_height="100dp"
+            android:id="@+id/pointsOfIntBtn"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/black_btn"
+            android:src="@drawable/points_of_interest"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:scaleType="fitCenter"
+            android:layout_marginBottom="10dp" />
+
+        <ImageButton
+            android:layout_width="500dp"
+            android:layout_height="100dp"
+            android:id="@+id/showMapBtn"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/black_btn"
+            android:src="@drawable/show_map"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/headerBar"
+        android:layout_above="@+id/menuLayout"
+        android:id="@+id/searchDestinationLayout"
+        android:visibility="invisible">
+
+        <EditText
+            android:layout_width="500dp"
+            android:layout_height="70dp"
+            android:inputType="textPostalAddress"
+            android:ems="10"
+            android:id="@+id/searchBar"
+            android:layout_marginLeft="20dp"
+            android:text="@string/nav_search_bar"
+            android:background="@drawable/search_bar_bg"
+            android:paddingLeft="15dp"
+            android:layout_alignTop="@+id/searchButton"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp" />
+
+        <FrameLayout
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/searchButton"
+            android:nestedScrollingEnabled="false"
+            android:clickable="true"
+            android:layout_marginLeft="27dp"
+            android:layout_centerVertical="true"
+            android:layout_alignEnd="@+id/searchBar"></FrameLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/headerBar"
+        android:background="@drawable/gvsu_map"
+        android:id="@+id/showMapLayout"
+        android:visibility="invisible">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/myLocation"
+            android:layout_marginTop="121dp"
+            android:src="@drawable/my_loc"
+            android:layout_below="@+id/headerBar"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="480dp"
+            android:layout_alignParentStart="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/directions"
+            android:id="@+id/directionsText"
+            android:textColor="#000000"
+            android:textSize="50dp"
+            android:textAlignment="gravity"
+            android:gravity="center_horizontal"
+            android:background="#77777777"
+            android:visibility="invisible"
+            android:layout_marginTop="78dp"
+            android:layout_below="@+id/confirmationBox"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pointsOfInterestLayout"
+        android:layout_alignTop="@+id/fullscreen_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible">
+
+        <RelativeLayout
+            android:layout_width="400dp"
+            android:layout_height="200dp"
+            android:id="@+id/confirmationBox"
+            android:layout_below="@+id/searchBar"
+            android:layout_centerHorizontal="true"
+            android:background="#ee333333"
+            android:visibility="invisible">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:id="@+id/confirmCancel"
+                android:layout_column="4"
+                android:layout_gravity="center_horizontal"
+                android:layout_alignTop="@+id/confirmOK"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="50dp"
+                android:padding="25dp"
+                android:background="#88FF0000"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirm"
+                android:id="@+id/confirmOK"
+                android:layout_column="3"
+                android:layout_gravity="right"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="50dp"
+                android:padding="25dp"
+                android:background="#8800FF00"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/confirm_nav"
+                android:id="@+id/confirmationString"
+                android:layout_column="3"
+                android:layout_above="@+id/confirmOK"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="52dp" />
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:text="BACK"
+            android:id="@+id/poiBackBtn"
+            android:textSize="35sp"
+            android:visibility="invisible"
+            android:background="@drawable/black_btn"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@+id/station2Select"
+            android:layout_alignParentStart="true" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="285dp"
+            android:layout_marginLeft="285dp"
+            android:id="@+id/categoryGrid"
+            android:visibility="visible"
+            android:layout_marginTop="50dp">
+
+            <ImageButton
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/foodBtn"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:src="@drawable/food"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/gasBtn"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:src="@drawable/gas"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/hotelBtn"
+                android:layout_row="0"
+                android:layout_column="2"
+                android:scaleType="fitCenter"
+                android:src="@drawable/hotels" />
+
+            <ImageButton
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/coffeeBtn"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:scaleType="fitCenter"
+                android:src="@drawable/coffee" />
+
+            <ImageButton
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/barsBtn"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bars" />
+
+            <ImageButton
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/parksBtn"
+                android:layout_row="1"
+                android:layout_column="2"
+                android:scaleType="fitCenter"
+                android:src="@drawable/parks" />
+        </GridLayout>
+
+        <FrameLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="200dp"
+            android:id="@+id/station1Select"
+            android:visibility="invisible"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"></FrameLayout>
+
+        <FrameLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="200dp"
+            android:id="@+id/station2Select"
+            android:visibility="invisible"
+            android:layout_below="@+id/station1Select"
+            android:layout_alignParentEnd="true" />
+
+        <FrameLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="200dp"
+            android:id="@+id/station3Select"
+            android:visibility="invisible"
+            android:layout_below="@+id/station2Select"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:text="BACK"
+        android:id="@+id/navBackBtn"
+        android:textSize="35sp"
+        android:visibility="invisible"
+        android:background="@drawable/black_btn"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="20dp"
+        android:layout_above="@+id/menuLayout"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/menuLayout"
+        android:gravity="center_horizontal"
+        android:background="#44444444"
+        android:paddingTop="10dp">
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/homeBtn"
+            android:src="@drawable/home"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/climateBtn"
+            android:src="@drawable/climate"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/audioBtn"
+            android:src="@drawable/audio"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/navBtn"
+            android:src="@drawable/nav_sel"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/phoneBtn"
+            android:src="@drawable/phone"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+    </LinearLayout>
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+</RelativeLayout>

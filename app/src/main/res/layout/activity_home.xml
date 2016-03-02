@@ -1,0 +1,178 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <TextView android:id="@+id/fullscreen_content" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:keepScreenOn="true" android:textColor="#33b5e5"
+        android:textStyle="bold" android:textSize="50sp"
+        android:background="@drawable/black_dot_bg"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:autoText="false" />
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="#ccbbbbbb"
+        android:id="@+id/headerBar"
+        android:weightSum="1"
+        style="horizontal"
+        android:gravity="right|center_vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1.01"
+            android:gravity="left|center_vertical"
+            android:id="@+id/deviceConnectedLayout"
+            android:visibility="invisible" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView10"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bluetooth"
+                android:paddingLeft="10dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView11"
+                android:scaleType="fitCenter"
+                android:src="@drawable/battery"
+                android:paddingLeft="10dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView12"
+                android:scaleType="fitCenter"
+                android:src="@drawable/signal"
+                android:paddingLeft="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/phoneName"
+                android:layout_marginLeft="20dp"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:id="@+id/compass"
+            android:src="@drawable/compass_north" />
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:id="@+id/weather"
+            android:src="@drawable/rain" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/external_temp"
+            android:id="@+id/externTe"
+            android:textSize="50dp"
+            android:textColor="#000000"
+            android:paddingRight="50dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Monday, November 9, 2015"
+        android:id="@+id/date"
+        android:textColor="@color/abc_secondary_text_material_dark"
+        android:textSize="@dimen/abc_text_size_display_1_material"
+        android:layout_gravity="center"
+        android:layout_below="@+id/textClock"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/menuLayout"
+        android:gravity="center_horizontal">
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/homeBtn"
+            android:src="@drawable/home_sel"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/climateBtn"
+            android:src="@drawable/climate"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/audioBtn"
+            android:src="@drawable/audio"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/navBtn"
+            android:src="@drawable/nav"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/phoneBtn"
+            android:src="@drawable/phone"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+    </LinearLayout>
+
+    <TextClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textClock"
+        android:textSize="@dimen/abc_text_size_display_4_material"
+        android:layout_below="@+id/headerBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="115dp"
+        android:singleLine="true" />
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+</RelativeLayout>

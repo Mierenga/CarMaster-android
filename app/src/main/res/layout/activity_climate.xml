@@ -1,0 +1,425 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cis368.com.carmaster.Climate">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <TextView android:id="@+id/fullscreen_content" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:keepScreenOn="true" android:textColor="#33b5e5"
+        android:textStyle="bold" android:textSize="50sp"
+        android:background="@drawable/black_dot_bg"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/positionContent"
+        android:layout_above="@+id/menuLayout"
+        android:layout_below="@+id/headerBar"
+        android:layout_marginRight="165dp"
+        android:background="#44CCCCCC"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="310dp"
+            android:id="@+id/positionSelectLayout"
+            android:layout_marginLeft="20dp"
+            android:gravity="top"
+            android:background="@color/blue_menu_background"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="40dp">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/all_area"
+                android:id="@+id/allBtn"
+                android:textSize="30sp"
+                android:background="@drawable/blue_btn"
+                android:src="@drawable/car_all"
+                android:scaleType="centerInside"
+                android:padding="15dp"
+
+                android:layout_alignParentTop="true"
+                android:layout_alignEnd="@+id/passengerBtn" />
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/steering_wheel_d"
+                android:id="@+id/driverBtn"
+                android:background="@drawable/black_btn"
+                android:scaleType="centerInside"
+                android:padding="10dp"
+                android:layout_below="@+id/allBtn"
+                android:layout_toStartOf="@+id/passengerBtn" />
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/passengerBtn"
+                android:background="@drawable/black_btn"
+                android:src="@drawable/stick_head_p"
+                android:scaleType="centerInside"
+                android:padding="10dp"
+                android:layout_below="@+id/allBtn"
+                android:layout_alignParentEnd="true" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id="@+id/rearBtn"
+                android:background="@drawable/black_btn"
+                android:src="@drawable/rear_bench"
+                android:layout_below="@+id/driverBtn"
+                android:layout_toStartOf="@+id/passengerBtn"
+                android:scaleType="centerInside"
+                android:padding="10dp"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+        <GridLayout
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="70dp"
+            android:id="@+id/climateControls"
+            android:layout_alignParentTop="false"
+            android:layout_toStartOf="@+id/ventControlLayout">
+
+            <FrameLayout
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:background="@drawable/temp_gradient_bev"
+                android:layout_gravity="center_horizontal"
+                android:visibility="visible">
+
+            </FrameLayout>
+
+            <SeekBar
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBar"
+                android:layout_row="7"
+                android:layout_column="0"
+                android:layout_gravity="top|center_horizontal"
+                android:indeterminate="false"
+                android:thumb="@drawable/blow_slider_bev"
+                android:max="20"
+                android:progress="10"
+                android:layout_columnSpan="2"
+                android:thumbOffset="50dp"
+                android:indeterminateBehavior="cycle" />
+
+            <SeekBar
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tempSeekBar"
+                android:layout_row="4"
+                android:layout_column="1"
+                android:layout_gravity="center_horizontal"
+                android:indeterminate="false"
+                android:thumb="@drawable/temp_slider_bev"
+                android:max="20"
+                android:progress="10"
+                android:layout_rowSpan="2"
+                android:thumbOffset="50dp" />
+
+            <FrameLayout
+                android:layout_width="300dp"
+                android:layout_height="79dp"
+                android:layout_row="6"
+                android:layout_column="1"
+                android:background="@drawable/blow_gradient_bev"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="center_horizontal" />
+        </GridLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="70\u00B0F"
+            android:id="@+id/tempValue"
+            android:textSize="40sp"
+            android:layout_alignTop="@+id/climateControls"
+            android:layout_toEndOf="@+id/positionSelectLayout"
+            android:layout_marginLeft="20dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="150dp"
+            android:layout_height="400dp"
+            android:id="@+id/ventControlLayout"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_marginRight="20dp"
+            android:background="@color/gray_menu_background"
+            android:layout_marginEnd="27dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@+id/positionSelectLayout"
+            android:layout_alignTop="@+id/positionSelectLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="airflow"
+                android:id="@+id/textView6"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/ventControlLayout"
+                android:layout_alignEnd="@+id/ventControlLayout"
+                android:textAlignment="gravity"
+                android:textSize="30sp"
+                android:gravity="center_horizontal"
+                android:layout_above="@+id/ventControlLayout"
+                android:layout_marginTop="20sp" />
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/ventHead"
+                android:src="@drawable/ac_head"
+                android:layout_marginBottom="20dp"
+                android:background="#00000000" />
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/ventFeet"
+                android:src="@drawable/ac_feet"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="#00000000"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/autoBtn"
+            android:src="@drawable/auto_btn"
+            android:scaleType="fitCenter"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/positionSelectLayout"
+            android:layout_marginBottom="31dp"
+            android:background="#00000000"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/menuLayout"
+        android:gravity="center_horizontal">
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/homeBtn"
+            android:src="@drawable/home"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/climateBtn"
+            android:src="@drawable/climate_sel"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/audioBtn"
+            android:src="@drawable/audio"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/navBtn"
+            android:src="@drawable/nav"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/phoneBtn"
+            android:src="@drawable/phone"
+            android:scaleType="fitCenter"
+            android:layout_above="@+id/menuLayout"
+            android:layout_alignParentStart="true" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="#99bbbbbb"
+        android:layout_alignParentStart="false"
+        android:id="@+id/headerBar"
+        android:weightSum="1"
+        style="horizontal"
+        android:gravity="center_vertical|right">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1.01"
+            android:gravity="left|center_vertical"
+            android:id="@+id/deviceConnectedLayout"
+            android:visibility="invisible" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView7"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bluetooth"
+                android:paddingLeft="10dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView8"
+                android:scaleType="fitCenter"
+                android:src="@drawable/battery"
+                android:paddingLeft="10dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView9"
+                android:scaleType="fitCenter"
+                android:src="@drawable/signal"
+                android:paddingLeft="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/phoneName"
+                android:layout_marginLeft="20dp"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <TextClock
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/time"
+            android:textColor="#BBBBBB"
+            android:textSize="60sp"
+            android:background="#444444"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:gravity="center_vertical" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:id="@+id/compass"
+            android:src="@drawable/compass_north"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:id="@+id/weather"
+            android:src="@drawable/rain" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/external_temp"
+            android:id="@+id/externTemp"
+            android:textSize="50dp"
+            android:textColor="#000000"
+            android:paddingRight="50dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="150dp"
+        android:layout_height="400dp"
+        android:id="@+id/defrostLayout"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="#99bbbbbb"
+        android:layout_above="@+id/menuLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/headerBar"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="defrost"
+            android:id="@+id/textView7"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/ventControlLayout"
+            android:layout_alignEnd="@+id/ventControlLayout"
+            android:textAlignment="gravity"
+            android:textSize="30sp"
+            android:gravity="center_horizontal"
+            android:layout_above="@+id/ventControlLayout" />
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/defrostBtn"
+            android:src="@drawable/defrost"
+            android:padding="10dp"
+            android:background="#00000000"
+            android:layout_alignBottom="@+id/climateControls"
+            android:layout_toEndOf="@+id/positionSelectLayout"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp" />
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/rearDefrostButton"
+            android:src="@drawable/rear_defrost_btn"
+            android:background="#00000000"
+            android:layout_alignBottom="@+id/climateControls"
+            android:layout_toEndOf="@+id/positionSelectLayout"
+            android:layout_marginTop="40dp"
+            android:longClickable="false"
+            android:scaleType="fitCenter"
+            android:padding="5dp" />
+    </LinearLayout>
+
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+</RelativeLayout>
